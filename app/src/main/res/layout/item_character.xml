@@ -26,30 +26,12 @@
             style="@style/CharacterNameTextView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@string/name_character"
+            android:layout_marginTop="3dp"
+            android:ellipsize="end"
+            android:maxLines="1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/ivCharacterPhoto"
             app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/tvCharacterHeaderStatus"
-            style="@style/CharacterHeaderTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/character_status_header"
-            app:layout_constraintEnd_toStartOf="@id/tvCharacterStatus"
-            app:layout_constraintStart_toEndOf="@+id/ivCharacterPhoto"
-            app:layout_constraintTop_toBottomOf="@+id/tvNameCharacter" />
-
-        <TextView
-            android:id="@+id/tvCharacterStatus"
-            style="@style/CharacterStatusTextView"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="@string/character_status"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/tvCharacterHeaderStatus"
-            app:layout_constraintTop_toBottomOf="@+id/tvNameCharacter" />
 
         <TextView
             android:id="@+id/tvCharacterHeaderRace"
@@ -57,29 +39,45 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/character_race_header"
-            app:layout_constraintEnd_toStartOf="@id/tvCharacterStatus"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/ivCharacterPhoto"
-            app:layout_constraintTop_toBottomOf="@+id/tvCharacterHeaderStatus" />
+            app:layout_constraintTop_toBottomOf="@+id/tvNameCharacter" />
 
         <TextView
             android:id="@+id/tvCharacterRace"
             style="@style/CharacterStatusTextView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@string/character_race"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/tvCharacterHeaderStatus"
-            app:layout_constraintTop_toBottomOf="@+id/tvCharacterHeaderStatus" />
+            app:layout_constraintStart_toEndOf="@+id/tvCharacterHeaderRace"
+            app:layout_constraintTop_toBottomOf="@+id/tvNameCharacter" />
 
-        <Button
-            style="@style/ButtonStatusStyle"
+        <TextView
+            android:id="@+id/tvLastLocationHeader"
+            style="@style/CharacterHeaderTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/last_location"
+            app:layout_constraintStart_toEndOf="@+id/ivCharacterPhoto"
+            app:layout_constraintTop_toBottomOf="@+id/tvCharacterHeaderRace" />
+
+        <TextView
+            android:id="@+id/tvLastLocation"
+            style="@style/CharacterStatusTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/ivCharacterPhoto"
+            app:layout_constraintTop_toBottomOf="@+id/tvLastLocationHeader" />
+
+        <TextView
+            android:id="@+id/tvStatusColor"
             android:layout_width="0dp"
             android:layout_height="5dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/ivCharacterPhoto"
-            app:layout_constraintTop_toBottomOf="@+id/tvCharacterRace" />
+            app:layout_constraintStart_toEndOf="@+id/ivCharacterPhoto"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>
