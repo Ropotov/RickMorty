@@ -1,22 +1,25 @@
 package ru.nikita.rickmorty.fragments
 
 import android.graphics.Color
-import android.sax.EndElementListener
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import ru.nikita.rickmorty.data.Result
 import ru.nikita.rickmorty.databinding.ItemCharacterBinding
 import ru.nikita.rickmorty.utils.CharacterStatusEnums
+import ru.nikita.rickmorty.utils.DiffCallback
 
 class CharacterFragmentAdapter :
     RecyclerView.Adapter<CharacterFragmentAdapter.CharacterViewHolder>() {
 
     var characterList: List<Result> = listOf()
         set(newValue) {
+            val diffCallback = DiffCallback(field, newValue)
+            val diffResult = DiffUtil.calculateDiff(diffCallback)
             field = newValue
-            notifyDataSetChanged()
+            diffResult.dispatchUpdatesTo(this)
         }
 
     class CharacterViewHolder(private val binding: ItemCharacterBinding) :
