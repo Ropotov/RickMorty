@@ -30,5 +30,4 @@ class CharacterFragmentAdapter :
     }
 
     override fun getItemCount(): Int = characterList.size
-
 }
