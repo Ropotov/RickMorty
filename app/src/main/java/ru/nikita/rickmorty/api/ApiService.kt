@@ -10,5 +10,5 @@ interface ApiService {
     suspend fun getCharacter(
         @Query("page") page: Int = 1,
         @Query("pageSize") pageSize: Int = 20
-    ): Response<Character>
+    ): List<Character>
 }

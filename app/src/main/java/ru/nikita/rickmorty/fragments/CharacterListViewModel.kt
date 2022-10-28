@@ -9,7 +9,7 @@ import ru.nikita.rickmorty.data.Character
 import ru.nikita.rickmorty.api.RetrofitInstance
 
 class CharacterListViewModel: ViewModel() {
-    var characterList: MutableLiveData<Response<Character>> = MutableLiveData()
+    var characterList: MutableLiveData<List<Character>> = MutableLiveData()
 
     init {
         getCharacterList()

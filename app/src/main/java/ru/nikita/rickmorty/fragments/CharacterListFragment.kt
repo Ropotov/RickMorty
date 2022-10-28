@@ -23,10 +23,7 @@ class CharacterListFragment : Fragment() {
     ): View {
         binding = FragmentCharacterListBinding.inflate(inflater, container, false)
         rvInit()
-        viewModel.characterList.observe(viewLifecycleOwner, { response ->
-            if (response.isSuccessful) {
-                response.body()?.results?.let { adapter.characterList = it }
-            }
+        viewModel.characterList.observe(viewLifecycleOwner, {
         })
         return binding.root
     }
