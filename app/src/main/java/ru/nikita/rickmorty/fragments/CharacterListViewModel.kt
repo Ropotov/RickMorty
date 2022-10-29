@@ -1,23 +1,25 @@
 package ru.nikita.rickmorty.fragments
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
-import retrofit2.Response
-import ru.nikita.rickmorty.data.Character
-import ru.nikita.rickmorty.api.RetrofitInstance
+import ru.nikita.rickmorty.data.Repository
 
-class CharacterListViewModel: ViewModel() {
-    var characterList: MutableLiveData<List<Character>> = MutableLiveData()
+class CharacterListViewModel : ViewModel() {
+
+    private val repository = Repository()
+    val characterLD: MutableLiveData<ru.nikita.rickmorty.data.Character> = MutableLiveData()
 
     init {
-        getCharacterList()
+        getCharacter()
     }
 
-    private fun getCharacterList(){
-        viewModelScope.launch {
-            characterList.value = RetrofitInstance.Api.getCharacter()
-        }
+    private fun getCharacter() {
+    viewModelScope.launch(){
+        characterLD.value = repository.getCharacter()
     }
+    }
+
 }

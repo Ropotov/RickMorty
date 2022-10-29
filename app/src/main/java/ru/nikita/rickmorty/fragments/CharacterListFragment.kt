@@ -23,8 +23,9 @@ class CharacterListFragment : Fragment() {
     ): View {
         binding = FragmentCharacterListBinding.inflate(inflater, container, false)
         rvInit()
-        viewModel.characterList.observe(viewLifecycleOwner, {
-        })
+        viewModel.characterLD.observe(viewLifecycleOwner) {
+            adapter.submitList(it.results)
+        }
         return binding.root
     }
 
