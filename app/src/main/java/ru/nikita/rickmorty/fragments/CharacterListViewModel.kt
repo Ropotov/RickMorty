@@ -10,9 +10,9 @@ import ru.nikita.rickmorty.data.Repository
 class CharacterListViewModel : ViewModel() {
 
     private val repository = Repository()
-    val characterLD: MutableLiveData<ru.nikita.rickmorty.data.Character> = MutableLiveData()
+    val characterLD = repository.getCharacter()
 
-    init {
+   /* init {
         getCharacter()
     }
 
@@ -20,6 +20,6 @@ class CharacterListViewModel : ViewModel() {
     viewModelScope.launch(){
         characterLD.value = repository.getCharacter()
     }
-    }
+    }*/
 
 }
