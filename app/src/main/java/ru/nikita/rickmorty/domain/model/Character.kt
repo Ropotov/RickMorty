@@ -1,4 +1,4 @@
-package ru.nikita.rickmorty.data
+package ru.nikita.rickmorty.domain.model
 
 data class Character(
     var info: Info,

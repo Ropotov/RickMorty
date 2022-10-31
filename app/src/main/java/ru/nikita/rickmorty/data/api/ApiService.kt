@@ -1,14 +1,13 @@
-package ru.nikita.rickmorty.api
+package ru.nikita.rickmorty.data.api
 
-import androidx.lifecycle.LiveData
 import retrofit2.http.GET
 import retrofit2.http.Query
-import ru.nikita.rickmorty.data.Character
+import ru.nikita.rickmorty.data.model.CharacterDto
 
 interface ApiService {
     @GET("character/")
-    fun getCharacter(
+    suspend fun getCharacter(
         @Query("page") page: Int = 1,
         @Query("pageSize") pageSize: Int = 20
-    ): LiveData<Character>
+    ): CharacterDto
 }

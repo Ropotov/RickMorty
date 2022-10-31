@@ -1,4 +1,4 @@
-package ru.nikita.rickmorty.data
+package ru.nikita.rickmorty.domain.model
 
 data class Result(
     var created: String,
@@ -8,7 +8,6 @@ data class Result(
     var image: String,
     var location: Location,
     var name: String,
-    var origin: Origin,
     var species: String,
     var status: String,
     var type: String,

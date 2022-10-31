@@ -1,4 +1,4 @@
-package ru.nikita.rickmorty.fragments
+package ru.nikita.rickmorty.presentation.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater

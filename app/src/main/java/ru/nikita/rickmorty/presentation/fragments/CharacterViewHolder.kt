@@ -1,9 +1,9 @@
-package ru.nikita.rickmorty.fragments
+package ru.nikita.rickmorty.presentation.fragments
 
 import android.graphics.Color
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import ru.nikita.rickmorty.data.Result
+import ru.nikita.rickmorty.domain.model.Result
 import ru.nikita.rickmorty.databinding.ItemCharacterBinding
 import ru.nikita.rickmorty.utils.CharacterStatusEnums
 

@@ -1,8 +1,9 @@
-package ru.nikita.rickmorty
+package ru.nikita.rickmorty.presentation
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import ru.nikita.rickmorty.fragments.CharacterListFragment
+import ru.nikita.rickmorty.R
+import ru.nikita.rickmorty.presentation.fragments.CharacterListFragment
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
