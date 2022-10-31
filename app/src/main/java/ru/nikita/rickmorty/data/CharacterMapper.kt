@@ -13,10 +13,10 @@ import ru.nikita.rickmorty.domain.model.Result
 class CharacterMapper {
 
     private fun mapInfoDtoToInfo(infoDto: InfoDto) = Info(
-        count = infoDto.count ?: 0,
+        count = infoDto.count ?: EMPTY_NUMBER,
         next = infoDto.next ?: EMPTY_STRING,
-        pages = infoDto.pages ?: 0,
-        prev = infoDto.prev ?: 0,
+        pages = infoDto.pages ?: EMPTY_NUMBER,
+        prev = infoDto.prev ?: EMPTY_NUMBER,
     )
 
     private fun mapLocationDtoToLocation(locationDto: LocationDto) = Location(
@@ -28,7 +28,7 @@ class CharacterMapper {
         created = resultDto.created ?: EMPTY_STRING,
         episode = resultDto.episode ?: emptyList(),
         gender = resultDto.gender ?: EMPTY_STRING,
-        id = resultDto.id ?: 0,
+        id = resultDto.id ?: EMPTY_NUMBER,
         image = resultDto.image ?: EMPTY_STRING,
         location = mapLocationDtoToLocation(resultDto.location),
         name = resultDto.name ?: EMPTY_STRING,
@@ -49,5 +49,6 @@ class CharacterMapper {
 
     companion object {
         private const val EMPTY_STRING = ""
+        private const val EMPTY_NUMBER = 0
     }
 }

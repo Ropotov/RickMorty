@@ -7,14 +7,14 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.DefaultItemAnimator
-import androidx.recyclerview.widget.RecyclerView
 import ru.nikita.rickmorty.databinding.FragmentCharacterListBinding
 
 class CharacterListFragment : Fragment() {
 
     private lateinit var binding: FragmentCharacterListBinding
-    lateinit var recyclerView: RecyclerView
-    lateinit var adapter: CharacterFragmentAdapter
+    private val adapter by lazy {
+        CharacterFragmentAdapter()
+    }
     private val viewModel: CharacterListViewModel by viewModels()
 
     override fun onCreateView(
@@ -30,8 +30,7 @@ class CharacterListFragment : Fragment() {
     }
 
     private fun rvInit() {
-        recyclerView = binding.rvCharacterList
-        adapter = CharacterFragmentAdapter()
+        val recyclerView = binding.rvCharacterList
         recyclerView.adapter = adapter
         val itemAnimator = binding.rvCharacterList.itemAnimator
         if (itemAnimator is DefaultItemAnimator) {

@@ -4,7 +4,7 @@ import ru.nikita.rickmorty.data.api.RetrofitInstance
 import ru.nikita.rickmorty.domain.CharacterRepository
 import ru.nikita.rickmorty.domain.model.Character
 
-class CharacterRepositoryImpl: CharacterRepository{
+class CharacterRepositoryImpl : CharacterRepository {
 
     private val mapper = CharacterMapper()
 
@@ -13,5 +13,3 @@ class CharacterRepositoryImpl: CharacterRepository{
         return mapper.mapCharacterDtoToCharacter(character)
     }
 }
-
-
