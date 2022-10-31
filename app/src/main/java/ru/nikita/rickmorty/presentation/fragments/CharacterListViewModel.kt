@@ -11,6 +11,7 @@ import ru.nikita.rickmorty.domain.model.Character
 class CharacterListViewModel : ViewModel() {
 
     private val characterRepositoryImpl = CharacterRepositoryImpl()
+    var isLoading = true
     private val getCharacterUseCase = GetCharacterUseCase(characterRepositoryImpl)
     val characterLD: MutableLiveData<Character> = MutableLiveData()
 
@@ -21,6 +22,7 @@ class CharacterListViewModel : ViewModel() {
     private fun getCharacter() {
         viewModelScope.launch() {
             characterLD.value = getCharacterUseCase.getCharacter()
+            isLoading = false
         }
     }
 }
