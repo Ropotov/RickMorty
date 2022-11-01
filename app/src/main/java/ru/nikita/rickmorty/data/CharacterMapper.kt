@@ -24,7 +24,7 @@ class CharacterMapper {
         url = locationDto.url ?: EMPTY_STRING
     )
 
-    private fun mapResultsDtoToResults(resultDto: ResultDto) = Result(
+    fun mapResultsDtoToResults(resultDto: ResultDto) = Result(
         created = resultDto.created ?: EMPTY_STRING,
         episode = resultDto.episode ?: emptyList(),
         gender = resultDto.gender ?: EMPTY_STRING,

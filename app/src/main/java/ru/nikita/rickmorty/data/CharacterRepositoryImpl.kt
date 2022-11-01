@@ -3,6 +3,7 @@ package ru.nikita.rickmorty.data
 import ru.nikita.rickmorty.data.api.RetrofitInstance
 import ru.nikita.rickmorty.domain.CharacterRepository
 import ru.nikita.rickmorty.domain.model.Character
+import ru.nikita.rickmorty.domain.model.Result
 
 class CharacterRepositoryImpl : CharacterRepository {
 
@@ -13,8 +14,8 @@ class CharacterRepositoryImpl : CharacterRepository {
         return mapper.mapCharacterDtoToCharacter(character)
     }
 
-    override suspend fun getDetailCharacter(id: Int): Character {
+    override suspend fun getDetailCharacter(id: Int): Result {
         val detailCharacter = RetrofitInstance.Api.getDetailCharacter(id)
-        return mapper.mapCharacterDtoToCharacter(detailCharacter)
+        return mapper.mapResultsDtoToResults(detailCharacter)
     }
 }

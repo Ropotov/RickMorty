@@ -35,7 +35,8 @@ class CharacterListFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         adapter.onCharacterClickListener = {
             findNavController().navigate(
-                R.id.action_characterListFragment_to_characterDetailFragment
+                CharacterListFragmentDirections
+                    .actionCharacterListFragmentToCharacterDetailFragment(it.id)
             )
         }
     }

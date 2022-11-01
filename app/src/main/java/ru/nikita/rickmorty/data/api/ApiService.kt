@@ -4,6 +4,7 @@ import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
 import ru.nikita.rickmorty.data.model.CharacterDto
+import ru.nikita.rickmorty.data.model.ResultDto
 
 interface ApiService {
     @GET("character/")
@@ -15,5 +16,5 @@ interface ApiService {
     @GET("character/{id}")
     suspend fun getDetailCharacter(
         @Path("id") id: Int
-    ): CharacterDto
+    ): ResultDto
 }
