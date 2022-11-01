@@ -7,7 +7,7 @@ import ru.nikita.rickmorty.databinding.ItemCharacterBinding
 import ru.nikita.rickmorty.domain.model.Result
 import ru.nikita.rickmorty.utils.CharacterStatusEnums
 
-class CharacterViewHolder(private val binding: ItemCharacterBinding) :
+class CharacterViewHolder(val binding: ItemCharacterBinding) :
     RecyclerView.ViewHolder(binding.root) {
     fun bind(position: Result) {
         with(binding) {

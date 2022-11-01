@@ -6,7 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DefaultItemAnimator
+import ru.nikita.rickmorty.R
 import ru.nikita.rickmorty.databinding.FragmentCharacterListBinding
 
 class CharacterListFragment : Fragment() {
@@ -27,6 +29,15 @@ class CharacterListFragment : Fragment() {
             adapter.submitList(it.results)
         }
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        adapter.onCharacterClickListener = {
+            findNavController().navigate(
+                R.id.action_characterListFragment_to_characterDetailFragment
+            )
+        }
     }
 
     private fun rvInit() {

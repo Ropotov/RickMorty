@@ -12,4 +12,9 @@ class CharacterRepositoryImpl : CharacterRepository {
         val character = RetrofitInstance.Api.getCharacter()
         return mapper.mapCharacterDtoToCharacter(character)
     }
+
+    override suspend fun getDetailCharacter(id: Int): Character {
+        val detailCharacter = RetrofitInstance.Api.getDetailCharacter(id)
+        return mapper.mapCharacterDtoToCharacter(detailCharacter)
+    }
 }
