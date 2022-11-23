@@ -8,9 +8,10 @@ import ru.nikita.rickmorty.domain.model.Character
 import ru.nikita.rickmorty.domain.model.Info
 import ru.nikita.rickmorty.domain.model.Location
 import ru.nikita.rickmorty.domain.model.Result
+import javax.inject.Inject
 
 
-class CharacterMapper {
+class CharacterMapper @Inject constructor() {
 
     private fun mapInfoDtoToInfo(infoDto: InfoDto) = Info(
         count = infoDto.count ?: EMPTY_NUMBER,

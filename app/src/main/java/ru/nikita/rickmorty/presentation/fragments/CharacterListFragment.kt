@@ -1,28 +1,43 @@
 package ru.nikita.rickmorty.presentation.fragments
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DefaultItemAnimator
-import ru.nikita.rickmorty.R
+import ru.nikita.rickmorty.RickAndMortyApp
 import ru.nikita.rickmorty.databinding.FragmentCharacterListBinding
+import javax.inject.Inject
 
 class CharacterListFragment : Fragment() {
 
     private lateinit var binding: FragmentCharacterListBinding
+    private lateinit var viewModel: CharacterListViewModel
     private val adapter by lazy {
         CharacterFragmentAdapter()
     }
-    private val viewModel: CharacterListViewModel by viewModels()
+
+    @Inject
+    lateinit var viewModelFactory: ViewModelFactory
+
+    private val component by lazy {
+        (requireActivity().application as RickAndMortyApp).component
+    }
+
+    override fun onAttach(context: Context) {
+        component.inject(this)
+        super.onAttach(context)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        viewModel = ViewModelProvider(this, viewModelFactory)[CharacterListViewModel::class.java]
         binding = FragmentCharacterListBinding.inflate(inflater, container, false)
         rvInit()
         viewModel.characterLD.observe(viewLifecycleOwner) {
